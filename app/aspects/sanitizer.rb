@@ -20,7 +20,13 @@ module Terminus
 
       attr_reader :defaults, :client
 
-      def configuration = client::Config.merge(defaults, elements:, attributes:)
+      def configuration = client::Config.merge(defaults, elements:, attributes:, protocols:)
+
+      def protocols
+        defaults[:protocols].merge "link" => {"href" => ["http", "https", :relative]},
+                                   "script" => {"src" => ["http", "https", :relative]},
+                                   "img" => {"src" => ["http", "https", :relative]}
+      end
 
       def elements
         defaults[:elements].including "canvas",
