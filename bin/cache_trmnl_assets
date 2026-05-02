@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'open-uri'
+require 'fileutils'
+require 'net/http'
+
+ROOT_URL = 'https://trmnl.com'
+PUBLIC_DIR = 'public/trmnl'
+
+FILES_TO_DOWNLOAD = [
+  '/css/latest/plugins.css',
+  '/js/latest/plugins.js',
+  '/icon.svg',
+  '/favicon.ico',
+  '/images/brand/icon--brand.png'
+]
+
+def download(url, path)
+  if File.exist?(path)
+    puts "Skipping #{path} (already exists)"
+    return File.read(path)
+  end
+
+  puts "Downloading #{url} to #{path}..."
+  FileUtils.mkdir_p(File.dirname(path))
+  
+  uri = URI.parse(url)
+  Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+    request = Net::HTTP::Get.new(uri)
+    response = http.request(request)
+    
+    if response.code == '200'
+      File.open(path, 'wb') { |f| f.write(response.body) }
+      return response.body
+    else
+      puts "  Error: #{response.code}"
+      return nil
+    end
+  end
+rescue => e
+  puts "  Failed: #{e.message}"
+  nil
+end
+
+# Download base files
+FILES_TO_DOWNLOAD.each do |file|
+  download("#{ROOT_URL}#{file}", "#{PUBLIC_DIR}#{file}")
+end
+
+# Parse CSS for more assets
+css_content = File.read("#{PUBLIC_DIR}/css/latest/plugins.css")
+urls = css_content.scan(/url\(([^)]+)\)/).flatten.map { |u| u.gsub(/['"]/, '') }
+
+urls.each do |url|
+  # Skip data URIs
+  next if url.start_with?('data:')
+  
+  full_url = url.start_with?('http') ? url : "#{ROOT_URL}#{url}"
+  local_path = "#{PUBLIC_DIR}#{url.split('?').first}"
+  
+  download(full_url, local_path)
+end
+
+# Weather icons (educated guesses and standard TRMNL/Weather Icons)
+WEATHER_ICONS = %w[
+  clear-day clear-night rain snow sleet wind fog cloudy partly-cloudy-day partly-cloudy-night
+  hail thunderstorm tornado
+  wi-day-sunny wi-night-clear wi-rain wi-snow wi-sleet wi-strong-wind wi-fog wi-cloudy
+  wi-day-cloudy wi-night-alt-cloudy wi-hail wi-thunderstorm wi-tornado
+  wi-cloud wi-cloudy-gusts wi-cloudy-windy wi-day-cloudy-gusts wi-day-fog
+  wi-day-hail wi-day-lightning wi-day-rain wi-day-rain-mix wi-day-rain-wind
+  wi-day-showers wi-day-sleet wi-day-sleet-storm wi-day-snow wi-day-snow-thunderstorm
+  wi-day-snow-wind wi-day-sprinkle wi-day-storm-showers wi-day-sunny-overcast
+  wi-day-thunderstorm wi-day-windy wi-solar-eclipse wi-hot wi-thermometer
+  wi-thermometer-exterior wi-thermometer-internal wi-cloud-down wi-cloud-up
+]
+
+WEATHER_ICONS.each do |icon|
+  # Try some common paths for weather icons in TRMNL
+  ['/images/plugins/weather', '/images/icons/weather', '/images/weather'].each do |base_path|
+    url = "#{base_path}/#{icon}.svg"
+    download("#{ROOT_URL}#{url}", "#{PUBLIC_DIR}#{url}")
+  end
+end
+
+puts "Done!"
