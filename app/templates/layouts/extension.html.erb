@@ -2,6 +2,7 @@
 
 <html lang="en">
   <head>
+    <base href="<%= Hanami.app[:settings].api_uri %>/">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 
     <title><%= content_for :title %></title>
@@ -12,7 +13,7 @@
 
     <%= tag.link title: "TRMNL: Stylesheet",
                  rel: :stylesheet,
-                 href: "/trmnl/css/latest/plugins.css" %>
+                 href: "/uploads/trmnl/css/plugins.css" %>
 
     <style type="text/css">
       .trmnl {
@@ -23,7 +24,7 @@
       }
     </style>
 
-    <%= javascript_tag "/trmnl/js/latest/plugins.js" %>
+    <%= javascript_tag "/uploads/trmnl/js/plugins.js" %>
   </head>
 
   <body class="trmnl">
