@@ -54,16 +54,22 @@ module Terminus
           end
 
           def build_payload device, attributes
-            model[**fetch_firmware(device), **attributes, **device.as_api_display]
+            payload = if device.firmware_update
+                        fetch_firmware(device).merge!(attributes)
+                      else
+                        attributes
+                      end
+
+            model[**payload, **device.as_api_display]
           end
 
           def fetch_firmware device
             firmware_repository.latest.then do |firmware|
-              break unless firmware
+              return {} unless firmware
 
               version = firmware.version
 
-              break if device.firmware_version == version
+              return {} if device.firmware_version == version
 
               {
                 firmware_url: firmware.attachment_uri(host: settings.api_uri),
@@ -73,14 +79,12 @@ module Terminus
           end
 
           def any_error device, screen, response
-            payload = model[
+            attributes = {
               filename: screen.image_name,
-              image_url: screen.image_uri(host: settings.api_uri),
-              **fetch_firmware(device),
-              **device.as_api_display
-            ]
+              image_url: screen.image_uri(host: settings.api_uri)
+            }
 
-            response.body = payload.to_json
+            response.body = build_payload(device, attributes).to_json
           end
 
           def not_found response
