@@ -24,6 +24,6 @@ module Terminus
       format: /\A[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}\Z/
     )
 
-    Version = String.constrained(format: /\A\d+\.\d+\.\d+\Z/)
+    Version = String.constrained(format: /\A\d+\.\d+\.\d+(\.\d+)?\Z/)
   end
 end
