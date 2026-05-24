@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     amazing_print (2.0.0)
     ast (2.4.3)
-    bake (0.24.1)
+    bake (0.25.0)
       bigdecimal
       samovar (~> 2.1)
     base64 (0.3.0)
@@ -41,19 +41,19 @@ GEM
     childprocess (5.1.0)
       logger (~> 1.5)
     chunky_png (1.4.0)
-    cogger (2.2.0)
+    cogger (2.3.0)
       core (~> 3.0)
       logger (~> 1.7)
       refinements (~> 14.0)
       tone (~> 3.0)
-      zeitwerk (~> 2.7)
+      zeitwerk (~> 2.8)
     concurrent-ruby (1.3.6)
     connection_pool (3.0.2)
-    console (1.34.3)
+    console (1.35.1)
       fiber-annotation
       fiber-local (~> 1.1)
       json
-    containable (2.2.1)
+    containable (2.3.0)
       concurrent-ruby (~> 1.3)
     content_disposition (1.0.0)
     core (3.2.0)
@@ -78,7 +78,7 @@ GEM
     down (5.6.0)
       addressable (~> 2.8)
       base64 (~> 0.3)
-    dry-auto_inject (1.1.0)
+    dry-auto_inject (1.2.0)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
     dry-cli (1.4.1)
@@ -294,7 +294,7 @@ GEM
     marameters (5.2.0)
       refinements (~> 14.0)
       zeitwerk (~> 2.7)
-    marcel (1.1.0)
+    marcel (1.2.1)
     matrix (0.4.3)
     mini_magick (5.3.1)
       logger
@@ -537,9 +537,9 @@ GEM
       refinements (~> 14.0)
       zeitwerk (~> 2.7)
     transproc (1.1.1)
-    trmnl-api (0.15.0)
-      cogger (~> 2.0)
-      containable (~> 2.0)
+    trmnl-api (0.17.0)
+      cogger (~> 2.3)
+      containable (~> 2.3)
       core (~> 3.2)
       dry-monads (~> 1.9)
       dry-schema (~> 1.14)
@@ -548,7 +548,7 @@ GEM
       infusible (~> 5.0)
       inspectable (~> 1.0)
       pipeable (~> 2.0)
-      zeitwerk (~> 2.7)
+      zeitwerk (~> 2.8)
     trmnl-liquid (0.7.0)
       liquid (~> 5.12)
       redcarpet (~> 3.6)
@@ -560,7 +560,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
-    versionaire (15.2.0)
+    versionaire (15.3.0)
       refinements (~> 14.0)
     warning (1.6.0)
     webrick (1.9.2)
@@ -572,7 +572,7 @@ GEM
     xdg (10.2.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.8.0)
+    zeitwerk (2.8.1)
 
 PLATFORMS
   aarch64-linux
@@ -593,7 +593,7 @@ DEPENDENCIES
   caliber (~> 0.91)
   capybara (~> 3.40)
   capybara-validate_html5 (~> 2.1)
-  cogger (~> 2.0)
+  cogger (~> 2.3)
   connection_pool (~> 3.0)
   core (~> 3.2)
   csv (~> 3.3)
@@ -652,9 +652,9 @@ DEPENDENCIES
   sidekiq (~> 8.0)
   sidekiq-scheduler (~> 6.0)
   simplecov (~> 0.22)
-  trmnl-api (~> 0.15)
+  trmnl-api (~> 0.17)
   trmnl-liquid (~> 0.6)
-  versionaire (~> 15.0)
+  versionaire (~> 15.3)
   warning (~> 1.5)
   wholeable (~> 2.1)
 
@@ -662,7 +662,7 @@ CHECKSUMS
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   amazing_print (2.0.0) sha256=2e36aba46ac78d37ed27ca0e2056afe3583183bb5c64f157c246b267355e5d6a
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
-  bake (0.24.1) sha256=8bfac7e61514b17720e3b13cf6a5e122243f43123c6802707b150904bec5f4c7
+  bake (0.25.0) sha256=a47bdc6a26addc048827debc36fe27bb4d5d71ac2958ad910b5386e9baf49869
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bcrypt (3.1.22) sha256=1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032
   better_errors (2.10.1) sha256=f798f1bac93f3e775925b7fcb24cffbcf0bb62ee2210f5350f161a6b75fc0a73
@@ -673,11 +673,11 @@ CHECKSUMS
   capybara-validate_html5 (2.1.0) sha256=9c5bcac8058f05c8468c0856ccfbf91478e24c7ff07c79b8ac7c64ba9291cf5a
   childprocess (5.1.0) sha256=9a8d484be2fd4096a0e90a0cd3e449a05bc3aa33f8ac9e4d6dcef6ac1455b6ec
   chunky_png (1.4.0) sha256=89d5b31b55c0cf4da3cf89a2b4ebc3178d8abe8cbaf116a1dba95668502fdcfe
-  cogger (2.2.0) sha256=d2cb16fc7aa93001865a3c73454027cc26348ff48b6f49cc2d9d100a3407b7d2
+  cogger (2.3.0) sha256=4119fc1e7c517ada19fe221f47a18df3245c80152b080f0f7eaee17114543e18
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
-  console (1.34.3) sha256=869fbd74697efc4c606f102d2812b0b008e4e7fd738a91c591e8577140ec0dcc
-  containable (2.2.1) sha256=47870ea565ab5636018d429b40f62d1b3333098c29400a4057d37ab262dfce65
+  console (1.35.1) sha256=6d2bfdd0bc7e57830540a6c0ce3bc83fff471844db44be89a38aef9f95df296a
+  containable (2.3.0) sha256=50ea39c7db67de55b4456f634f6f398c75ae4f5b8abc0052b1512a5df842a0aa
   content_disposition (1.0.0) sha256=aa153da9c1543a45413a3f5f281d8dd50384bb0fba864fe1bd42ba80d88da516
   core (3.2.0) sha256=b3ff51dbf91d65a0b0bae57c16603ca545ea558a1b40a812272abde53abc3440
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
@@ -693,7 +693,7 @@ CHECKSUMS
   domain_name (0.6.20240107) sha256=5f693b2215708476517479bf2b3802e49068ad82167bcd2286f899536a17d933
   dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   down (5.6.0) sha256=48ec6ddb078cbf3b425d02596bb388303316f976143c6e94a7b3169d6712b593
-  dry-auto_inject (1.1.0) sha256=f9276cb5d15a3ef138e1f1149e289e287f636de57ef4a6decd233542eb708f78
+  dry-auto_inject (1.2.0) sha256=a856588ea4d354a9fa437108e73de07feac593926099fda9db597b481037b911
   dry-cli (1.4.1) sha256=b8015bb76c708aa8705a36faf694973e75eeeffca39b89c8e172dc6f66a7d874
   dry-configurable (1.4.0) sha256=e35d1b5f3c081753ef361f564919db79000f32cfa6f20ee3a3ba5921b41b73ce
   dry-core (1.2.0) sha256=0cc5a7da88df397f153947eeeae42e876e999c1e30900f3c536fb173854e96a1
@@ -757,7 +757,7 @@ CHECKSUMS
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   mapping (1.1.3) sha256=2274931d20ecd46eaafdd1e00c58cc7472133b213bcac335cc7733d3c75f4da2
   marameters (5.2.0) sha256=debccb7cec86d47347ae8aa7014a279c90217af7803ee96c5b5429057091c980
-  marcel (1.1.0) sha256=fdcfcfa33cc52e93c4308d40e4090a5d4ea279e160a7f6af988260fa970e0bee
+  marcel (1.2.1) sha256=1678e9360e32f9eafa917c80029e2f6d10b2715c66a4b87b6d0da9b9cd1f859f
   matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
   mini_magick (5.3.1) sha256=29395dfd76badcabb6403ee5aff6f681e867074f8f28ce08d78661e9e4a351c4
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
@@ -851,13 +851,13 @@ CHECKSUMS
   tilt (2.7.0) sha256=0d5b9ba69f6a36490c64b0eee9f6e9aad517e20dcc848800a06eb116f08c6ab3
   tone (3.2.0) sha256=ecd5edccfcf346134d80fc258395a9f5ce11cba6cb2603e5369cb51c6ea89205
   transproc (1.1.1) sha256=b2f9a85ecaf7064f0b3893ffac929de9fd713b13f5aaf822b0bd091fd6f5c8c2
-  trmnl-api (0.15.0) sha256=cf3d55415442f2d902141284f4ad9a4bebed880e37116a97c0993017263d3322
+  trmnl-api (0.17.0) sha256=596efaef9e0c4735506f028ddb53a08379a916a81952b741748350fc8ac1aa9e
   trmnl-liquid (0.7.0) sha256=25e399c694f58888e45eca730e595d08338c5d977358611c2655375cf9e5090a
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
-  versionaire (15.2.0) sha256=05e2e5290f81d96b0bcfa5addfafb6dcbe82f6ae7591425571c560b086c10dc8
+  versionaire (15.3.0) sha256=00bc2f5f588163fbb71b0c451266f432c8e37383b377b41ca903e9f52f108699
   warning (1.6.0) sha256=a49cdfae19fb77d19afff2efbe45f8ab759e9cd25b4e4ce2c79dbaf46bdb6c9e
   webrick (1.9.2) sha256=beb4a15fc474defed24a3bda4ffd88a490d517c9e4e6118c3edce59e45864131
   websocket-driver (0.8.0) sha256=ed0dba4b943c22f17f9a734817e808bc84cdce6a7e22045f5315aa57676d4962
@@ -865,10 +865,10 @@ CHECKSUMS
   wholeable (2.2.0) sha256=3771cd074fe482c379e8a2564b01e0877d7c62461926c3b614ceff4707689ba0
   xdg (10.2.0) sha256=fe756543e29548fb05a5b0395ffd49f54ae07182a906598ef9694d68c56af028
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
-  zeitwerk (2.8.0) sha256=474d0a1d2429f635af7c4574f5ddbce0d0cfc286067c7515858b93a26b4f3e3d
+  zeitwerk (2.8.1) sha256=1c85e0f28954d68cd16e575da37f26846f609b68d80b5942ccfd31030c2449d5
 
 RUBY VERSION
-  ruby 4.0.4
+  ruby 4.0.5
 
 BUNDLED WITH
-  4.0.11
+  4.0.12

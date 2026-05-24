@@ -11,9 +11,9 @@ RSpec.describe Terminus::Aspects::Extensions::Importers::Remote::Transformers::T
     context "with URI indexes" do
       let :content do
         <<~CONTENT
-          <p>{{IDX_0}}</p>
-          <p>{{IDX_1}}</p>
-          <p>{{IDX_2}}</p>
+          {{ IDX_0 }}
+          {{ IDX_1 }}
+          {{ IDX_2 }}
         CONTENT
       end
 
@@ -22,11 +22,11 @@ RSpec.describe Terminus::Aspects::Extensions::Importers::Remote::Transformers::T
           template: <<~CONTENT
             {% assign shared = "Test" %}
 
-            <div class="{{extension.css_classes}}">
+            <div class="{{ extension.css_classes }}">
               <div class="view view--full">
-                <p>{{source_1}}</p>
-            <p>{{source_2}}</p>
-            <p>{{source_3}}</p>
+                {{ source_1 }}
+            {{ source_2 }}
+            {{ source_3 }}
 
               </div>
             </div>
@@ -42,11 +42,11 @@ RSpec.describe Terminus::Aspects::Extensions::Importers::Remote::Transformers::T
     context "with special keys" do
       let :content do
         <<~CONTENT
-          <p>{{ rss.channel.item[0] }}</p>
-          <p>{{ source_1.data }}</p>
-          <p>{{ trmnl.plugin_settings.instance_name }}</p>
-          <p>{{ trmnl.plugin_settings.custom_fields_values.test }}</p>
-          <p>{{ trmnl.plugin_settings.custom_fields[0].name }}</p>
+          {{ rss.channel.item[0] }}
+          {{ source_1.data }}
+          {{ trmnl.plugin_settings.instance_name }}
+          {{ trmnl.plugin_settings.custom_fields_values.test }}
+          {{ trmnl.plugin_settings.custom_fields[0].name }}
         CONTENT
       end
 
@@ -55,13 +55,13 @@ RSpec.describe Terminus::Aspects::Extensions::Importers::Remote::Transformers::T
           template: <<~CONTENT
             {% assign shared = "Test" %}
 
-            <div class="{{extension.css_classes}}">
+            <div class="{{ extension.css_classes }}">
               <div class="view view--full">
-                <p>{{ source_1.rss.channel.item[0] }}</p>
-            <p>{{ source_1 }}</p>
-            <p>{{ extension.label }}</p>
-            <p>{{ extension.values.test }}</p>
-            <p>{{ extension.fields[0].name }}</p>
+                {{ source_1.rss.channel.item[0] }}
+            {{ source_1.data }}
+            {{ extension.label }}
+            {{ extension.values.test }}
+            {{ extension.fields[0].name }}
 
               </div>
             </div>
@@ -82,7 +82,7 @@ RSpec.describe Terminus::Aspects::Extensions::Importers::Remote::Transformers::T
 
         expect(transformer.call({}, archive)).to be_success(
           template: <<~CONTENT
-            <div class="{{extension.css_classes}}">
+            <div class="{{ extension.css_classes }}">
               <div class="view view--full">
                 <p>Test</p>
               </div>
