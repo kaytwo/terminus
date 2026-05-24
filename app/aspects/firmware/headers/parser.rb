@@ -11,6 +11,7 @@ module Terminus
         class Parser
           include Deps[
             :logger,
+            mac_address_transformer: "aspects.firmware.headers.transformers.mac_address",
             model_name_transformer: "aspects.firmware.headers.transformers.model_name",
             sensors_transformer: "aspects.firmware.headers.transformers.sensors"
           ]
@@ -29,6 +30,7 @@ module Terminus
 
             pipe headers,
                  validate(schema, as: :to_h),
+                 use(mac_address_transformer),
                  use(model_name_transformer),
                  use(sensors_transformer),
                  to(model, :for)

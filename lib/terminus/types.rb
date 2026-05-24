@@ -21,7 +21,7 @@ module Terminus
     Pathname = Constructor ::Pathname
 
     MACAddress = String.constrained(
-      format: /\A[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}:[0-9A-F]{2}\Z/
+      format: /\A[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}\Z/
     )
 
     Version = String.constrained(format: /\A\d+\.\d+\.\d+\Z/)
